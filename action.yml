@@ -1,0 +1,17 @@
+name: 'configmap'
+description: 'Outputs variable definitions in a k8s configmap'
+author: '@mmaiza'
+
+inputs:
+  configmaps-directory:
+    description: 'Path to directory for configmaps'
+    required: true
+  configmaps-paths:
+    description: >
+      List of confimaps paths separated by a comma, rightmost configmap will
+      override the previous configmaps if keys defined multiple time. The paths
+      will be relative to the directory defined by "configmap-directory".
+    required: true
+runs:
+  using: 'node16'
+  main: './dist/index.js'
